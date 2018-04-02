@@ -60,13 +60,13 @@ public class AppController {
         List<User> users = userService.findAllUsers();
         model.addAttribute("users", users);
         model.addAttribute("loggedinuser", getPrincipal());
-        return "userslist";
+        return "usersList";
     }
 
     /**
      * This method will provide the medium to add a new user.
      */
-    @RequestMapping(value = {"/newuser"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/newUser"}, method = RequestMethod.GET)
     public String newUser(ModelMap model) {
         User user = new User();
         model.addAttribute("user", user);
@@ -79,7 +79,7 @@ public class AppController {
      * This method will be called on form submission, handling POST request for
      * saving user in database. It also validates the user input
      */
-    @RequestMapping(value = {"/newuser"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/newUser"}, method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult result,
                            ModelMap model) {
 
@@ -106,7 +106,7 @@ public class AppController {
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "registrationsuccess";
+        return "registrationSuccess";
     }
 
 
@@ -146,7 +146,7 @@ public class AppController {
 
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " updated successfully");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "registrationsuccess";
+        return "registrationSuccess";
     }
 
 
@@ -171,7 +171,7 @@ public class AppController {
     /**
      * This method handles Access-Denied redirect.
      */
-    @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
+    @RequestMapping(value = "/AccessDenied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
         model.addAttribute("loggedinuser", getPrincipal());
         return "accessDenied";
