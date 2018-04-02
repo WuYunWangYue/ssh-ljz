@@ -19,10 +19,10 @@
 			  <!-- Default panel contents -->
 		  	<div class="panel-heading"><span class="lead">List of Users </span></div>
 			<table class="table table-hover">
-	    		<thead>
+	    		<thread>
 		      		<tr>
-				        <th>Firstname</th>
-				        <th>Lastname</th>
+				        <th>FirstName</th>
+				        <th>LastName</th>
 				        <th>Email</th>
 				        <th>SSO ID</th>
 				        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
@@ -33,8 +33,8 @@
 				        </sec:authorize>
 
 					</tr>
-		    	</thead>
-	    		<tbody>
+		    	</thread>
+	    		<tableBody>
 				<c:forEach items="${users}" var="user">
 					<tr>
 						<td>${user.firstName}</td>
@@ -49,7 +49,7 @@
         				</sec:authorize>
 					</tr>
 				</c:forEach>
-	    		</tbody>
+	    		</tableBody>
 	    	</table>
 		</div>
 		<sec:authorize access="hasRole('ADMIN')">
