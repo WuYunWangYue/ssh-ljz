@@ -30,7 +30,6 @@ public class HibernateTokenRepositoryImpl extends AbstractDao<String, Persistent
         persistentLogin.setToken(token.getTokenValue());
         persistentLogin.setLast_used(token.getDate());
         persist(persistentLogin);
-
     }
 
     @Override
@@ -59,7 +58,6 @@ public class HibernateTokenRepositoryImpl extends AbstractDao<String, Persistent
             logger.info("rememberMe was selected");
             delete(persistentLogin);
         }
-
     }
 
     @Override

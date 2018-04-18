@@ -31,7 +31,6 @@ import com.ljz.ssh.service.UserService;
 
 
 @Controller
-@RequestMapping("/")
 @SessionAttributes("roles")
 public class AppController {
 
@@ -141,7 +140,6 @@ public class AppController {
 			return "registration";
 		}*/
 
-
         userService.updateUser(user);
 
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " updated successfully");
@@ -225,6 +223,7 @@ public class AppController {
      */
     private boolean isCurrentAuthenticationAnonymous() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
         return authenticationTrustResolver.isAnonymous(authentication);
     }
 
